@@ -5,6 +5,7 @@ sub Init()
   m.category = m.top.FindNode("category")
   m.releaseYear = m.top.FindNode("releaseYear")
   m.parentalRating = m.top.FindNode("parentalRating")
+  m.review = m.top.FindNode("review")
 
   m.video = m.top.FindNode("video")
   m.video.ObserveField("isBack", "FocusScreen")
@@ -27,6 +28,7 @@ sub LoadContent(event as object)
   m.releaseYear.text = data.releaseYear
   m.poster.uri = data.banner
   m.parentalRating.year = data.parentalRating
+  m.review.text = data.review
 
   m.top.isBack = false
   m.playBtn.SetFocus(true)
@@ -69,6 +71,7 @@ sub Setup()
 
   m.category.font.size = 20
   m.releaseYear.font.size = 20
+  m.review.font.size = 20
 end sub
 
 function OnKeyEvent(key as string, press as boolean) as boolean

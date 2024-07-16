@@ -11,6 +11,7 @@
       numColumns="5"
       numRows="5"
       focusBitmapBlendColor="0xff7a09"
+      loadingBitmapUri="pkg:/images/poster-loading.png"
     />
 
     <SynopsisScreen 

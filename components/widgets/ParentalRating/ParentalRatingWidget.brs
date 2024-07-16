@@ -39,7 +39,7 @@ sub Setup()
   m.label.width = 28
   m.label.height = 28
 
-  m.container.color = m.containerColors["14"]
-  m.label.text = "14"
+  m.container.color = m.containerColors["0"]
+  m.label.text = "L"
   m.label.font.size = 18
 end sub

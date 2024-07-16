@@ -33,14 +33,25 @@
           vertAlignment="center" 
           itemSpacings="[12]"
         >
+          <LayoutGroup 
+            layoutDirection="horiz" 
+            vertAlignment="top" 
+            horizAlignment="center"
+            itemSpacings="[5]"
+          >
+            <Poster 
+              uri="pkg:/images/icons/star-icon.png" 
+              width="22"
+              height="22"
+            />
+            <Label id="review" font="font:SmallSystemFont" />
+          </LayoutGroup>
+
+          <Label text="•" font="font:SmallSystemFont" />
           <Label id="category" font="font:SmallSystemFont" />
-
           <Label text="•" font="font:SmallSystemFont" />
-
           <Label id="releaseYear" font="font:SmallSystemFont" />
-
           <Label text="•" font="font:SmallSystemFont" />
-
           <ParentalRatingWidget id="parentalRating"/>
         </LayoutGroup>
 
@@ -50,7 +61,8 @@
           wrap="true"
         />
 
-        <Button
+        <ButtonGroup id="btn-container" itemSpacings="[8]">
+          <Button
           id="play"
           text="Assistir"
           showFocusFootprint="true"
@@ -60,6 +72,7 @@
           minWidth="170"
           height="50"
         />
+        </ButtonGroup>
       </LayoutGroup>
     </Group>
 
