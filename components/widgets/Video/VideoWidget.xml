@@ -1,7 +1,9 @@
 <component name="VideoWidget" extends="Video">
   <script type="text/brightscript" uri="VideoWidget.brs" />
+  <script type="text/brightscript" uri="../../helpers/GetVideoHistory.brs"/>
 
   <interface>
     <field id="isBack" type="bool" value="false" />
+    <field id="contentId" type="string" />
   </interface>
 </component>

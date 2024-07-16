@@ -44,7 +44,8 @@ sub PlayVideo(event as object)
   m.video.height = m.global.display["h"]
   m.video.visible = true
   m.video.isBack = false
-
+  
+  m.video.contentId = m.top.content.id
   m.video.content = content
   m.video.control = "play"
   m.video.SetFocus(true)
