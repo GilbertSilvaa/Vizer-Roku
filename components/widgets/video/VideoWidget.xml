@@ -1,0 +1,7 @@
+<component name="VideoWidget" extends="Video">
+  <script type="text/brightscript" uri="VideoWidget.brs" />
+
+  <interface>
+    <field id="isBack" type="bool" value="false" />
+  </interface>
+</component>

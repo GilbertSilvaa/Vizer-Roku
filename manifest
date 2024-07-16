@@ -1,0 +1,13 @@
+title=Vizer TV
+subtitle=Vizer TV
+major_version=1
+minor_version=0
+build_version=00000
+
+mm_icon_focus_hd=pkg:/images/icon_focus.jpg
+splash_screen_hd=pkg:/images/splash.jpg
+
+splash_color=#662D91
+splash_min_time=1000
+
+ui_resolutions = "hd"

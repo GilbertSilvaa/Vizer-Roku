@@ -1,0 +1,11 @@
+<component name="MainScene" extends="Scene">
+  <script type="text/brightscript" uri="MainScene.brs" />
+  <children>
+    <Rectangle
+      id="content"
+      color="0x040c1c"
+      translation="[0,0]" 
+    >
+    </Rectangle>
+  </children>
+</component>

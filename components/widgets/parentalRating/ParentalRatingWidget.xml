@@ -1,0 +1,19 @@
+<component name="ParentalRatingWidget" extends="Group">
+  <script type="text/brightscript" uri="ParentalRatingWidget.brs" />
+  
+  <interface>
+    <field id="year" type="integer" />
+    <field id="size" type="integer"/>
+  </interface>
+
+  <children>
+    <Rectangle id="container">
+      <Label 
+        id="label" 
+        font="font:MediumBoldSystemFont"
+        horizAlign = "center"
+        vertAlign = "center"
+      />
+    </Rectangle>
+  </children>
+</component>
