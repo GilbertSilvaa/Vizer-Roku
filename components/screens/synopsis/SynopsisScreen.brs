@@ -1,5 +1,7 @@
 sub Init()
   m.video = invalid
+  m.dialog = invalid
+
   m.title = m.top.FindNode("title")
   m.synopsis = m.top.FindNode("synopsis")
   m.poster = m.top.FindNode("poster")
@@ -39,11 +41,11 @@ sub PlayVideo()
   m.video = CreateObject("RoSGNode", "VideoWidget")
   m.top.AppendChild(m.video)
   m.video.ObserveField("isBack", "HandleBackVideo")
+  m.video.ObserveField("hasError", "HandleErrorVideo")
 
   m.video.width = m.global.display["w"]
   m.video.height = m.global.display["h"]
   m.video.visible = true
-  m.video.isBack = false
 
   m.video.contentId = m.top.content.id
   m.video.content = content
@@ -52,8 +54,18 @@ sub PlayVideo()
 end sub
 
 sub HandleBackVideo()
+  if not m.video = invalid then m.top.RemoveChild(m.video)
   SetupButtons()
-  m.top.RemoveChild(m.video)
+end sub
+
+sub HandleErrorVideo()
+  m.dialog = CreateObject("RoSGNode", "DialogWidget")
+  m.dialog.title = "Ops! Houve um erro"
+  m.dialog.message = "Ocorreu um erro ao tentar reproduzir o conteúdo"
+  m.dialog.ObserveField("close", "FocusScreen")
+
+  m.top.AppendChild(m.dialog)
+  m.dialog.buttonGroup.SetFocus(true)
 end sub
 
 sub ResetPlayVideo()
@@ -62,6 +74,7 @@ sub ResetPlayVideo()
 end sub
 
 sub FocusScreen()
+  if not m.dialog = invalid then m.top.RemoveChild(m.dialog)
   m.btnsContainer.SetFocus(true)
 end sub
 
@@ -73,17 +86,9 @@ sub SetupButtons()
   end while
 
   if positionVideo = "0" then
-    playBtn = CreateObject("RoSGNode", "Button")
-    playBtn.SetFields({
-      id: "play"
-      height: 50
-      minWidth: 170
-      text: "Assistir"
-      showFocusFootprint: true
-      iconUri: "pkg:/images/icons/play-icon.png"
-      focusedIconUri: "pkg:/images/icons/play-icon.png"
-      focusBitmapUri: "pkg:/images/colors/primary-color.png"
-    })
+    playBtn = CreateObject("RoSGNode", "ButtonWidget")
+    playBtn.icon = "pkg:/images/icons/play-icon.png"
+    playBtn.text = "Assistir"
 
     playBtn.ObserveField("buttonSelected", "PlayVideo")
     m.btnsContainer.AppendChild(playBtn)
@@ -91,32 +96,15 @@ sub SetupButtons()
     return
   end if
 
-  resetBtn = CreateObject("RoSGNode", "Button")
-  resetBtn.SetFields({
-    id: "reset-play"
-    height: 50
-    minWidth: 170
-    text: "Assistir do inicio"
-    showFocusFootprint: true
-    iconUri: "pkg:/images/icons/reset-icon.png"
-    focusedIconUri: "pkg:/images/icons/reset-icon.png"
-    focusBitmapUri: "pkg:/images/colors/primary-color.png"
-  })
-
-  playBtn = CreateObject("RoSGNode", "Button")
-  playBtn.SetFields({
-    id: "play"
-    height: 50
-    minWidth: 170
-    text: "Continuar assistindo"
-    showFocusFootprint: true
-    iconUri: "pkg:/images/icons/play-icon.png"
-    focusedIconUri: "pkg:/images/icons/play-icon.png"
-    focusBitmapUri: "pkg:/images/colors/primary-color.png"
-  })
-
-  playBtn.ObserveField("buttonSelected", "PlayVideo")
+  resetBtn = CreateObject("RoSGNode", "ButtonWidget")
+  resetBtn.icon = "pkg:/images/icons/reset-icon.png"
+  resetBtn.text = "Assistir do inicio"
   resetBtn.ObserveField("buttonSelected", "ResetPlayVideo")
+  
+  playBtn = CreateObject("RoSGNode", "ButtonWidget")
+  playBtn.icon = "pkg:/images/icons/play-icon.png"
+  playBtn.text = "Continuar assistindo"
+  playBtn.ObserveField("buttonSelected", "PlayVideo")
 
   m.btnsContainer.AppendChild(playBtn)
   m.btnsContainer.AppendChild(resetBtn)

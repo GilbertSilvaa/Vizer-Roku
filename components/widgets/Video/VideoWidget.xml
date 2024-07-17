@@ -4,6 +4,7 @@
 
   <interface>
     <field id="isBack" type="bool" value="false" />
+    <field id="hasError" type="bool" value="false" />
     <field id="contentId" type="string" />
   </interface>
 </component>
