@@ -1,6 +1,6 @@
 <component name="VideoWidget" extends="Video">
   <script type="text/brightscript" uri="VideoWidget.brs" />
-  <script type="text/brightscript" uri="../../helpers/GetVideoHistory.brs"/>
+  <script type="text/brightscript" uri="../../helpers/VideoPositionHelper.brs"/>
 
   <interface>
     <field id="isBack" type="bool" value="false" />

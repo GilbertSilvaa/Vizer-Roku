@@ -1,5 +1,6 @@
 <component name="SynopsisScreen" extends="Group">
   <script type="text/brightscript" uri="SynopsisScreen.brs" />
+  <script type="text/brightscript" uri="../../helpers/VideoPositionHelper.brs" />
 
   <interface>
     <field id="content" type="node" />
@@ -61,24 +62,9 @@
           wrap="true"
         />
 
-        <ButtonGroup id="btn-container" itemSpacings="[8]">
-          <Button
-          id="play"
-          text="Assistir"
-          showFocusFootprint="true"
-          iconUri="pkg:/images/icons/play-icon.png" 
-          focusedIconUri="pkg:/images/icons/play-icon.png" 
-          focusBitmapUri="pkg:/images/colors/primary-color.png"
-          minWidth="170"
-          height="50"
-        />
+        <ButtonGroup id="btns-container" itemSpacings="[8]">
         </ButtonGroup>
       </LayoutGroup>
     </Group>
-
-    <VideoWidget 
-      id="video" 
-      visible="false"
-    />
   </children>
 </component>

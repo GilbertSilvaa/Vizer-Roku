@@ -1,6 +1,5 @@
 sub Init()
   m.top.ObserveField("position", "HandleChangePosition")
-  m.top.ObserveField("state", "HandleChangeState")
   m.hasSetPosition = false
 end sub
 
@@ -27,7 +26,6 @@ function OnKeyEvent(key as string, press as boolean) as boolean
   if key = "back" and m.top.IsInFocusChain() then
     m.top.control = "pause"
     m.top.visible = false
-    m.hasSetPosition = false
     m.top.isBack = true
     
     return true
