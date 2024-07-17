@@ -1,0 +1,7 @@
+<component name="ButtonWidget" extends="Button">
+  <script type="text/brightscript" uri="ButtonWidget.brs" />
+  
+  <interface>
+    <field id="icon" type="string" />
+  </interface>
+</component>
