@@ -2,6 +2,8 @@ sub Init()
   m.top.ObserveField("position", "HandleChangePosition")
   m.top.ObserveField("state", "HandleChangeState")
   m.hasSetPosition = false
+
+  Setup()
 end sub
 
 sub HandleChangePosition(event as object)
@@ -33,6 +35,11 @@ end sub
 sub HandleSetPositionVideo()
   position = GetVideoPosition(m.top.contentId)
   m.top.seek = position
+end sub
+
+sub Setup()
+  m.top.trickPlayBar.filledBarBlendColor = "0xff7a09"
+  m.top.trickPlayBar.liveFilledBarBlendColor = "0xe72424"
 end sub
 
 function OnKeyEvent(key as string, press as boolean) as boolean
