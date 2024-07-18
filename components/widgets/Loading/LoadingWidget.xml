@@ -1,0 +1,13 @@
+<component name="LoadingWidget" extends="Group">
+  <script type="text/brightscript" uri="LoadingWidget.brs" />
+  
+  <children>
+    <Rectangle 
+      id="container"
+      translation="[0,0]" 
+      color="0x040c1c"
+    >
+      <BusySpinner id="spinner"/>
+    </Rectangle>
+  </children>
+</component>

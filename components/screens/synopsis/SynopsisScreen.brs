@@ -4,15 +4,16 @@ sub Init()
 
   m.title = m.top.FindNode("title")
   m.synopsis = m.top.FindNode("synopsis")
-  m.poster = m.top.FindNode("poster")
+  m.banner = m.top.FindNode("banner")
   m.category = m.top.FindNode("category")
   m.releaseYear = m.top.FindNode("releaseYear")
   m.parentalRating = m.top.FindNode("parentalRating")
   m.btnsContainer = m.top.FindNode("btns-container")
   m.review = m.top.FindNode("review")
 
-  m.top.ObserveField("content", "LoadContent")
   m.top.ObserveField("isBack", "FocusScreen")
+  m.top.ObserveField("content", "LoadContent")
+  m.top.ObserveField("preLoadBanner", "HandlePreLoadBanner")
 
   Setup()
 end sub
@@ -24,12 +25,16 @@ sub LoadContent(event as object)
   m.synopsis.text = data.synopsis
   m.category.text = data.category
   m.releaseYear.text = data.releaseYear
-  m.poster.uri = data.banner
+  m.banner.uri = data.banner
   m.parentalRating.year = data.parentalRating
   m.review.text = data.review
 
   m.top.isBack = false
   SetupButtons()
+end sub
+
+sub HandlePreLoadBanner(event as object)
+  m.banner.uri = event.GetData()
 end sub
 
 sub PlayVideo()
@@ -116,8 +121,8 @@ sub Setup()
   opacity.width = m.global.display["w"]
   opacity.height = m.global.display["h"]
 
-  m.poster.width = m.global.display["w"]
-  m.poster.height = m.global.display["h"]
+  m.banner.width = m.global.display["w"]
+  m.banner.height = m.global.display["h"]
 
   m.title.width = m.global.display["w"] / 1.5
   m.title.font.size = 60

@@ -3,6 +3,7 @@
   <script type="text/brightscript" uri="../../helpers/VideoPositionHelper.brs" />
 
   <interface>
+    <field id="preLoadBanner" type="string" />
     <field id="content" type="node" />
     <field id="isBack" type="bool" />
   </interface>
@@ -10,7 +11,7 @@
   <children>
     <Group>
       <Poster
-        id="poster"
+        id="banner"
         translation="[0,0]" 
       />
       <Rectangle 

@@ -4,7 +4,7 @@
   <children>
     <PosterGrid
       id="grid"
-      translation="[80,60]"
+      translation="[80,50]"
       basePosterSize="[200,200]"
       itemSpacing="[28,28]"
       caption1NumLines="1"

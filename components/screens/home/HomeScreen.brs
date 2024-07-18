@@ -3,6 +3,7 @@ sub init()
 
   m.grid = m.top.FindNode("grid")
   m.grid.ObserveField("itemSelected", "OpenSynopsis")
+  m.grid.ObserveField("itemFocused", "ChangeSynopsisBanner")
 
   m.synopsis = m.top.FindNode("synopsis")
   m.synopsis.ObserveField("isBack", "FocusScreen")
@@ -59,6 +60,11 @@ sub OpenSynopsis(event as object)
   m.synopsis.isBack = false
   m.grid.visible = false
   m.synopsis.visible = true
+end sub
+
+sub ChangeSynopsisBanner(event as object)
+  banner = m.grid.content.GetChild(event.GetData()).banner
+  m.synopsis.preLoadBanner = banner
 end sub
 
 sub FocusScreen(event as object)
