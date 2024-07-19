@@ -1,0 +1,27 @@
+<component name="SideMenuWidget" extends="Group">
+  <script type="text/brightscript" uri="SideMenuWidget.brs" />
+
+  <children>
+    <Group id="container">
+      <ButtonGroup 
+        id="menu"
+        layoutDirection="vert" 
+        itemSpacings="[32]"
+      >
+        <Button 
+          height="40"
+          iconUri="pkg:/images/icons/home-icon.png"
+          focusBitmapUri="pkg:/images/colors/active-menu-color.png"
+          focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+        />
+
+        <Button 
+          height="40"
+          iconUri="pkg:/images/icons/series-icon.png"
+          focusBitmapUri="pkg:/images/colors/active-menu-color.png"
+          focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+        />
+      </ButtonGroup>
+    </Group>
+  </children>
+</component>

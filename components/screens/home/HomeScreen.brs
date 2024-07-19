@@ -5,6 +5,7 @@ sub init()
   m.grid.ObserveField("itemSelected", "OpenSynopsis")
   m.grid.ObserveField("itemFocused", "ChangeSynopsisBanner")
 
+  m.sideMenu = m.top.FindNode("sideMenu")
   m.synopsis = m.top.FindNode("synopsis")
   m.synopsis.ObserveField("isBack", "FocusScreen")
 

@@ -44,17 +44,18 @@ sub PlayVideo()
   content.streamformat = "unk"
 
   m.video = CreateObject("RoSGNode", "VideoWidget")
-  m.top.AppendChild(m.video)
   m.video.ObserveField("isBack", "HandleBackVideo")
   m.video.ObserveField("hasError", "HandleErrorVideo")
-
+  
   m.video.width = m.global.display["w"]
   m.video.height = m.global.display["h"]
   m.video.visible = true
-
+  
   m.video.contentId = m.top.content.id
   m.video.content = content
   m.video.control = "play"
+  
+  m.top.AppendChild(m.video)
   m.video.SetFocus(true)
 end sub
 
