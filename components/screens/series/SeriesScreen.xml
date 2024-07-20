@@ -1,0 +1,25 @@
+<component name="SeriesScreen" extends="Group">
+  <script type="text/brightscript" uri="SeriesScreen.brs" />
+  
+  <children>
+    <PosterGrid
+      id="grid"
+      translation="[112,40]"
+      basePosterSize="[200,200]"
+      itemSpacing="[28,28]"
+      caption1NumLines="1"
+      numColumns="5"
+      numRows="5"
+      focusBitmapBlendColor="0xff7a09"
+      loadingBitmapUri="pkg:/images/poster-loading.png"
+    />
+
+    <SideMenuWidget 
+      id="sideMenu" 
+      itemFocus="1"
+      translation="[0,0]"
+    />
+    
+    <LoadingWidget id="loading" visible="true"/>
+  </children>
+</component>
