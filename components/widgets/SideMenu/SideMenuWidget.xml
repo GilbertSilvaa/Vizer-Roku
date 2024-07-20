@@ -1,27 +1,43 @@
 <component name="SideMenuWidget" extends="Group">
   <script type="text/brightscript" uri="SideMenuWidget.brs" />
+  <script type="text/brightscript" uri="../../helpers/ScreenHelper.brs" />
+
+  <interface>
+    <field id="isFocus" type="bool" value="false" />
+    <field id="isBack" type="bool" value="false" />
+    <field id="itemFocus" type="integer" value="0" />
+  </interface>
 
   <children>
-    <Group id="container">
+    <Rectangle 
+      id="container" 
+      color="0x09183500" 
+    >
       <ButtonGroup 
         id="menu"
         layoutDirection="vert" 
-        itemSpacings="[32]"
+        itemSpacings="[20]"
       >
         <Button 
-          height="40"
+          height="44"
           iconUri="pkg:/images/icons/home-icon.png"
-          focusBitmapUri="pkg:/images/colors/active-menu-color.png"
+          focusedIconUri="pkg:/images/icons/home-icon.png"
+          focusBitmapUri="pkg:/images/colors/primary-color.png"
           focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+          showFocusFootprint="true"
+          id="Home"
         />
 
         <Button 
-          height="40"
+          height="44"
           iconUri="pkg:/images/icons/series-icon.png"
-          focusBitmapUri="pkg:/images/colors/active-menu-color.png"
+          focusedIconUri="pkg:/images/icons/series-icon.png"
+          focusBitmapUri="pkg:/images/colors/primary-color.png"
           focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+          showFocusFootprint="true"
+          id="Séries"
         />
       </ButtonGroup>
-    </Group>
+    </Rectangle>
   </children>
 </component>

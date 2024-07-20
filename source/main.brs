@@ -8,7 +8,10 @@ sub ShowChannelSGScreen()
 
   m.global = screen.GetGlobalNode()
   m.global.AddField("display", "RoAssociativeArray", false)
+  m.global.AddField("screen", "string", false)
+
   m.global.display = device.GetDisplaySize()
+  m.global.screen = "HomeScreen"
 
   m.port = CreateObject("RoMessagePort")
 

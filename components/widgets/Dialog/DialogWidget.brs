@@ -1,5 +1,5 @@
 sub Init()
-  m.top.backgroundUri = "pkg:/images/colors/secondary-color.png"
+  m.top.backgroundUri = "pkg:/images/colors/secundary-color.png"
 
   closeBtn = CreateObject("RoSGNode", "Button")
   closeBtn.text = "Fechar"

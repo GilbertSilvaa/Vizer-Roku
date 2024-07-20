@@ -1,11 +1,14 @@
-sub init()
+sub Init()
   m.top.SetFocus(true)
 
+  m.loading = m.top.FindNode("loading")
   m.grid = m.top.FindNode("grid")
   m.grid.ObserveField("itemSelected", "OpenSynopsis")
   m.grid.ObserveField("itemFocused", "ChangeSynopsisBanner")
 
   m.sideMenu = m.top.FindNode("sideMenu")
+  m.sideMenu.ObserveField("isBack", "FocusScreen")
+
   m.synopsis = m.top.FindNode("synopsis")
   m.synopsis.ObserveField("isBack", "FocusScreen")
 
@@ -53,6 +56,7 @@ sub ContentLoaded(event as object)
 
   m.grid.content = content
   m.grid.SetFocus(true)
+  m.loading.visible = false
 end sub
 
 sub OpenSynopsis(event as object)
@@ -70,5 +74,19 @@ end sub
 
 sub FocusScreen(event as object)
   m.grid.visible = true
+  m.sideMenu.isBack = false
+  m.sideMenu.isFocus = false
+
   m.grid.SetFocus(event.GetData())
 end sub
+
+function OnKeyEvent(key as string, press as boolean) as boolean
+  if not press then return false
+
+  if key = "left" and m.grid.IsInFocusChain() then
+    m.sideMenu.isFocus = true
+    return true
+  end if
+
+  return false
+end function
