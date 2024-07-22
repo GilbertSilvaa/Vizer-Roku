@@ -23,7 +23,7 @@
 
       <LayoutGroup 
         layoutDirection="vert"
-        itemSpacings="[25]"
+        itemSpacings="[25, 25, 35]"
         translation="[50,50]" 
       >
         <Label 
