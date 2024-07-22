@@ -6,6 +6,7 @@ sub Init()
   m.synopsis = m.top.FindNode("synopsis")
   m.banner = m.top.FindNode("banner")
   m.category = m.top.FindNode("category")
+  m.duration = m.top.FindNode("duration")
   m.releaseYear = m.top.FindNode("releaseYear")
   m.parentalRating = m.top.FindNode("parentalRating")
   m.btnsContainer = m.top.FindNode("btns-container")
@@ -28,6 +29,7 @@ sub LoadContent(event as object)
   m.banner.uri = data.banner
   m.parentalRating.year = data.parentalRating
   m.review.text = data.review
+  m.duration.text = FormatSecondsToHHmm(data.duration)
 
   m.top.isBack = false
   SetupButtons()
@@ -135,6 +137,7 @@ sub Setup()
   m.category.font.size = 20
   m.releaseYear.font.size = 20
   m.review.font.size = 20
+  m.duration.font.size = 20
 end sub
 
 function OnKeyEvent(key as string, press as boolean) as boolean

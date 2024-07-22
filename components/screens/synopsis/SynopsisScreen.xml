@@ -1,6 +1,7 @@
 <component name="SynopsisScreen" extends="Group">
   <script type="text/brightscript" uri="SynopsisScreen.brs" />
   <script type="text/brightscript" uri="../../helpers/VideoPositionHelper.brs" />
+  <script type="text/brightscript" uri="../../helpers/FormatDateHelper.brs" />
 
   <interface>
     <field id="preLoadBanner" type="string" />
@@ -53,6 +54,8 @@
           <Label id="category" font="font:SmallSystemFont" />
           <Label text="•" font="font:SmallSystemFont" />
           <Label id="releaseYear" font="font:SmallSystemFont" />
+          <Label text="•" font="font:SmallSystemFont" />
+          <Label id="duration" font="font:SmallSystemFont" text="1h30m" />
           <Label text="•" font="font:SmallSystemFont" />
           <ParentalRatingWidget id="parentalRating"/>
         </LayoutGroup>
