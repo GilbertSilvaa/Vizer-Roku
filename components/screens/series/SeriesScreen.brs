@@ -1,8 +1,16 @@
 sub Init()
+  m.top.SetFocus(true)
+
   m.loading = m.top.FindNode("loading")
   m.grid = m.top.FindNode("grid")
+  m.grid.ObserveField("itemSelected", "OpenSynopsis")
+  m.grid.ObserveField("itemFocused", "ChangeSynopsisBanner")
+
   m.sideMenu = m.top.FindNode("sideMenu")
   m.sideMenu.ObserveField("isBack", "FocusScreen")
+
+  m.synopsis = m.top.FindNode("synopsis")
+  m.synopsis.ObserveField("isBack", "FocusScreen")
 
   LoadGridContent()
 end sub
@@ -47,6 +55,19 @@ sub ContentLoaded(event as object)
   m.grid.content = content
   m.grid.SetFocus(true)
   m.loading.visible = false
+end sub
+
+sub ChangeSynopsisBanner(event as object)
+  banner = m.grid.content.GetChild(event.GetData()).banner
+  m.synopsis.preLoadBanner = banner
+end sub
+
+sub OpenSynopsis(event as object)
+  content = m.grid.content.GetChild(event.GetData())
+  m.synopsis.content = content
+  m.synopsis.isBack = false
+  m.grid.visible = false
+  m.synopsis.visible = true
 end sub
 
 sub FocusScreen(event as object)

@@ -1,0 +1,79 @@
+<component name="SynopsisSeriesScreen" extends="Group">
+  <script type="text/brightscript" uri="SynopsisSeriesScreen.brs" />
+  <script type="text/brightscript" uri="../../helpers/FormatDateHelper.brs" />
+  
+  <interface>
+    <field id="preLoadBanner" type="string" />
+    <field id="content" type="node" />
+    <field id="isBack" type="bool" />
+  </interface>
+
+  <children>
+    <Group>
+      <Poster
+        id="banner"
+        translation="[0,0]" 
+      />
+      <Rectangle 
+        id="opacity"
+        color="0x000000cf" 
+        translation="[0,0]" 
+      />
+
+      <LayoutGroup 
+        layoutDirection="vert"
+        itemSpacings="[25]"
+        translation="[50,50]" 
+      >
+        <Label 
+          id="title"
+          font="font:LargeBoldSystemFont"       
+        />
+
+        <LayoutGroup 
+          layoutDirection="horiz" 
+          vertAlignment="center" 
+          itemSpacings="[12]"
+        >
+          <LayoutGroup 
+            layoutDirection="horiz" 
+            vertAlignment="top" 
+            horizAlignment="center"
+            itemSpacings="[5]"
+          >
+            <Poster 
+              uri="pkg:/images/icons/star-icon.png" 
+              width="22"
+              height="22"
+            />
+            <Label id="review" font="font:SmallSystemFont" />
+          </LayoutGroup>
+
+          <Label text="•" font="font:SmallSystemFont" />
+          <Label id="category" font="font:SmallSystemFont" />
+          <Label text="•" font="font:SmallSystemFont" />
+          <Label id="releaseYear" font="font:SmallSystemFont" />
+          <Label text="•" font="font:SmallSystemFont" />
+          <ParentalRatingWidget id="parentalRating"/>
+        </LayoutGroup>
+
+        <Label 
+          id="synopsis"
+          font="font:MediumSystemFont"
+          wrap="true"
+        />
+
+        <LabelList
+          id="seasons"
+          itemSize="[170,50]" 
+          textHorizAlign="center"
+          numRows="3"
+          focusBitmapBlendColor="0xff7a09"
+        >   
+          <ContentNode role="content"> 
+          </ContentNode>    
+        </LabelList>
+      </LayoutGroup>
+    </Group>
+  </children>
+</component>

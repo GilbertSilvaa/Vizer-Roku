@@ -21,5 +21,10 @@
     />
     
     <LoadingWidget id="loading" visible="true"/>
+
+    <SynopsisSeriesScreen 
+      id="synopsis" 
+      visible="false"
+    />
   </children>
 </component>
