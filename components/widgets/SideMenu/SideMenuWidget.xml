@@ -9,35 +9,32 @@
   </interface>
 
   <children>
-    <Rectangle 
-      id="container" 
-      color="0x09183500" 
-    >
-      <ButtonGroup 
-        id="menu"
-        layoutDirection="vert" 
-        itemSpacings="[20]"
-      >
-        <Button 
-          height="44"
-          iconUri="pkg:/images/icons/home-icon.png"
-          focusedIconUri="pkg:/images/icons/home-icon.png"
-          focusBitmapUri="pkg:/images/colors/primary-color.png"
-          focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
-          showFocusFootprint="true"
-          id="Home"
-        />
-
-        <Button 
-          height="44"
-          iconUri="pkg:/images/icons/series-icon.png"
-          focusedIconUri="pkg:/images/icons/series-icon.png"
-          focusBitmapUri="pkg:/images/colors/primary-color.png"
-          focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
-          showFocusFootprint="true"
-          id="Séries"
-        />
-      </ButtonGroup>
+    <Rectangle id="container" color="0x09183500">
     </Rectangle>
+    <ButtonGroup 
+      id="menu"
+      layoutDirection="vert" 
+      itemSpacings="[20]"
+    >
+      <Button 
+        height="44"
+        iconUri="pkg:/images/icons/home-icon.png"
+        focusedIconUri="pkg:/images/icons/home-icon.png"
+        focusBitmapUri="pkg:/images/colors/primary-color.png"
+        focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+        showFocusFootprint="true"
+        id="Home"
+      />
+
+      <Button 
+        height="44"
+        iconUri="pkg:/images/icons/series-icon.png"
+        focusedIconUri="pkg:/images/icons/series-icon.png"
+        focusBitmapUri="pkg:/images/colors/primary-color.png"
+        focusFootprintBitmapUri="pkg:/images/colors/active-menu-color.png"
+        showFocusFootprint="true"
+        id="Séries"
+      />
+    </ButtonGroup>
   </children>
 </component>
