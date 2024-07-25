@@ -1,0 +1,8 @@
+<component name="RowListWidget" extends="RowList">
+  <script type="text/brightscript" uri="RowListWidget.brs" />
+  
+  <interface>
+    <field id="size" type="integer"/>
+    <field id="content" type="node" />
+  </interface>
+</component>

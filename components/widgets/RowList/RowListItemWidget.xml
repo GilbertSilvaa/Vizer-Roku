@@ -1,0 +1,30 @@
+<component name="RowListItemWidget" extends="Group">
+  <script type="text/brightscript" uri="RowListItemWidget.brs" />
+
+  <interface > 
+    <field id="itemContent" type="node" onChange="LoadContent"/>
+  </interface>
+
+  <children>
+    <Poster 
+      id="poster" 
+      width="250" 
+      height="160" 
+    >
+      <Rectangle 
+        id="itemMask" 
+        color="0x000000FF" 
+        opacity="0.55" 
+        width="250" 
+        height="160" 
+      />
+    </Poster>
+
+    <Label 
+      id="title" 
+      translation="[0, 136]" 
+      horizAlign="right" 
+      width="240" 
+    />
+  </children>
+</component>

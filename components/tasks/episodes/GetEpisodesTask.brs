@@ -5,7 +5,7 @@ end sub
 
 sub GetContent()
   content = CreateObject("RoSGNode", "ContentNode")
-  URL = m.env["api"] + "/movie"
+  URL = m.env["api"] + "/episodes/" + m.top.serieId + "/" + m.top.season.ToStr()
 
   urlTransfer = CreateObject("RoUrlTransfer")
   urlTransfer.SetUrl(URL)
@@ -15,10 +15,10 @@ sub GetContent()
   response = ParseJson(response)
 
   for each item in response
-    movie = CreateObject("RoSGNode", "ContentNode")
-    movie.id = item.id
-
-    movie.AddFields({
+    episode = CreateObject("RoSGNode", "ContentNode")
+    episode.id = item.id
+    
+    episode.AddFields({
       title: item.title
       synopsis: item.synopsis
       category: item.category
@@ -26,13 +26,13 @@ sub GetContent()
       poster: item.poster
       releaseYear: item.releaseYear
       parentalRating: item.parentalRating
-      review: item.review
+      number: item.number
+      season: item.season
       url: item.video.url
       duration: item.video.duration
-      streamFormat: item.video.streamFormat
     })
     
-    content.AppendChild(movie)
+    content.AppendChild(episode)
   end for
 
   m.top.content = content

@@ -2,6 +2,7 @@ sub Init()
   m.video = invalid
   m.dialog = invalid
 
+  m.serieId = ""
   m.title = m.top.FindNode("title")
   m.synopsis = m.top.FindNode("synopsis")
   m.banner = m.top.FindNode("banner")
@@ -10,6 +11,7 @@ sub Init()
   m.parentalRating = m.top.FindNode("parentalRating")
   m.review = m.top.FindNode("review")
   m.seasons = m.top.FindNode("seasons")
+  m.episodes = m.top.FindNode("episodes")
 
   m.top.ObserveField("isBack", "FocusScreen")
   m.top.ObserveField("content", "LoadContent")
@@ -21,6 +23,7 @@ end sub
 sub LoadContent(event as object)
   data = event.GetData()
 
+  m.serieId = data.id
   m.title.text = data.title
   m.synopsis.text = data.synopsis
   m.category.text = data.category
@@ -40,7 +43,26 @@ sub LoadContent(event as object)
   end for
 
   m.top.isBack = false
+  LoadEpisodes()
   FocusScreen()
+end sub
+
+sub LoadEpisodes()
+  task = CreateObject("RoSGNode", "GetEpisodesTask")
+  task.serieId = m.serieId
+
+  if m.seasons.itemSelected >= 0 then
+    task.season = m.seasons.itemSelected + 1
+  else
+    task.season = 1
+  end if
+
+  task.ObserveField("content", "EpisodesLoaded")
+  task.control = "RUN"
+end sub
+
+sub EpisodesLoaded(event as object)
+  m.episodes.content = event.GetData()
 end sub
 
 sub HandlePreLoadBanner(event as object)
@@ -81,6 +103,14 @@ function OnKeyEvent(key as string, press as boolean) as boolean
     m.top.isBack = true
 
     return true
+  end if
+
+  if key = "right" and m.seasons.IsInFocusChain() then
+    m.episodes.SetFocus(true)
+  end if
+
+  if key = "left" and m.episodes.IsInFocusChain() then
+    m.seasons.SetFocus(true)
   end if
 
   return false

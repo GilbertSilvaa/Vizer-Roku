@@ -63,16 +63,24 @@
           wrap="true"
         />
 
-        <LabelList
-          id="seasons"
-          itemSize="[170,50]" 
-          textHorizAlign="center"
-          numRows="3"
-          focusBitmapBlendColor="0xff7a09"
-        >   
-          <ContentNode role="content"> 
-          </ContentNode>    
-        </LabelList>
+        <LayoutGroup 
+          layoutDirection="horiz" 
+          vertAlignment="top" 
+          itemSpacings="[50]"
+        >
+          <LabelList
+            id="seasons"
+            itemSize="[170,50]" 
+            textHorizAlign="center"
+            numRows="3"
+            focusBitmapBlendColor="0xff7a09"
+            focusFootprintBlendColor="0xDDDDDD"
+          >   
+            <ContentNode role="content"></ContentNode>    
+          </LabelList>
+
+          <RowListWidget id="episodes" />
+        </LayoutGroup>
       </LayoutGroup>
     </Group>
   </children>

@@ -1,6 +1,5 @@
 sub Init()
   m.top.functionName = "GetContent"
-  
   m.env = GetVariableEnvironments()
 end sub
 
@@ -17,8 +16,8 @@ sub GetContent()
 
   for each item in response
     serie = CreateObject("RoSGNode", "ContentNode")
-
-    serie.SetFields({ id: item.id })
+    serie.id = item.id
+    
     serie.AddFields({
       title: item.title
       synopsis: item.synopsis

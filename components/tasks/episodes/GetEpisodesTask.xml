@@ -1,0 +1,10 @@
+<component name="GetEpisodesTask" extends="Task">
+  <script type="text/brightscript" uri="GetEpisodesTask.brs" />
+  <script type="text/brightscript" uri="../../config/env.brs" />
+  
+  <interface>
+    <field id="content" type="node" />
+    <field id="serieId" type="string" />
+    <field id="season" type="integer" />
+  </interface>
+</component>
