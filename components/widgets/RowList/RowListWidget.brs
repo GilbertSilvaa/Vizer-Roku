@@ -49,7 +49,7 @@ end sub
 
 sub Setup()
   m.top.itemComponentName = "RowListItemWidget"
-  m.top.itemSize = [800,160]
+  m.top.itemSize = [900,160]
   m.top.rowItemSize = [[250,160]]
   m.top.rowItemSpacing = [[16,0]]
   m.top.rowFocusAnimationStyle = "floatingFocus"
