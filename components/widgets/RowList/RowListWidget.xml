@@ -5,4 +5,13 @@
     <field id="size" type="integer"/>
     <field id="content" type="node" />
   </interface>
+
+  <children>
+    <Label 
+      id="noItemsText" 
+      text="Sem registros..." 
+      color="0xdbdbdb"
+      visible="false"
+    />
+  </children>
 </component>

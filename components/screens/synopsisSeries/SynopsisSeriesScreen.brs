@@ -10,8 +10,12 @@ sub Init()
   m.releaseYear = m.top.FindNode("releaseYear")
   m.parentalRating = m.top.FindNode("parentalRating")
   m.review = m.top.FindNode("review")
-  m.seasons = m.top.FindNode("seasons")
+
   m.episodes = m.top.FindNode("episodes")
+  m.episodes.ObserveField("itemSelected", "PlayVideo")
+
+  m.seasons = m.top.FindNode("seasons")
+  m.seasons.ObserveField("itemSelected", "LoadEpisodes")
 
   m.top.ObserveField("isBack", "FocusScreen")
   m.top.ObserveField("content", "LoadContent")
@@ -61,6 +65,46 @@ sub LoadEpisodes()
   task.control = "RUN"
 end sub
 
+sub PlayVideo()
+  episodeSelected = m.episodes.rowItemSelected[1]
+  data = m.episodes.content.GetChild(0).GetChild(episodeSelected)
+  
+  content = CreateObject("RoSGNode", "ContentNode")
+  content.url = data.url
+  content.title = data.title
+  content.streamformat = "unk"
+
+  m.video = CreateObject("RoSGNode", "VideoWidget")
+  m.video.ObserveField("isBack", "HandleBackVideo")
+  m.video.ObserveField("hasError", "HandleErrorVideo")
+  
+  m.video.width = m.global.display["w"]
+  m.video.height = m.global.display["h"]
+  m.video.visible = true
+  
+  m.video.contentId = data.id
+  m.video.content = content
+  m.video.control = "play"
+  
+  m.top.AppendChild(m.video)
+  m.video.SetFocus(true)
+end sub
+
+sub HandleBackVideo()
+  if not m.video = invalid then m.top.RemoveChild(m.video)
+  m.episodes.SetFocus(true)
+end sub
+
+sub HandleErrorVideo()
+  m.dialog = CreateObject("RoSGNode", "DialogWidget")
+  m.dialog.title = "Ops! Houve um erro"
+  m.dialog.message = "Ocorreu um erro ao tentar reproduzir o conteúdo"
+  m.dialog.ObserveField("close", "FocusScreen")
+
+  m.top.AppendChild(m.dialog)
+  m.dialog.buttonGroup.SetFocus(true)
+end sub
+
 sub EpisodesLoaded(event as object)
   m.episodes.content = event.GetData()
 end sub
@@ -99,6 +143,7 @@ function OnKeyEvent(key as string, press as boolean) as boolean
   if not press then return false
 
   if key = "back" then
+    m.seasons.itemSelected = 0
     m.top.visible = false
     m.top.isBack = true
 
